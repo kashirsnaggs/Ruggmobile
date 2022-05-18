@@ -14,7 +14,8 @@ const success = () => {
     setTotalQuantities(0);
     setTotalPrice(0);
     runFireworks();
-  }, []);
+  }, [setCartItems, setTotalQuantities, setTotalPrice]);
+
   return (
     <div className="success-wrapper">
       <div className="success">
