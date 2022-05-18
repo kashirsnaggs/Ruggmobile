@@ -14,7 +14,6 @@ import getStripe from "../Lib/getStripe";
 
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../Lib/client";
-import Image from "next/image";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -84,7 +83,7 @@ const Cart = () => {
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
               <div className="product" key={item._id}>
-                <Image
+                <img
                   src={urlFor(item?.image[0])}
                   className="cart-product-image"
                   alt="icon"

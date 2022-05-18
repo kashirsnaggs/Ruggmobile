@@ -9,7 +9,6 @@ import {
 } from "react-icons/ai";
 
 import { useStateContext } from "../../context/StateContext";
-import Image from "next/image";
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
@@ -26,7 +25,7 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <Image
+            <img
               src={urlFor(image && image[index])}
               className="product-detail-image"
               alt="svg"
@@ -34,7 +33,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <div className="small-image-container">
             {image?.map((item, i) => (
-              <Image
+              <img
                 key={i}
                 src={urlFor(item)}
                 className={
