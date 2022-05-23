@@ -1,6 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+
+# Ecommerce Sanity Project
+
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1652857502/media/Screenshot_105_zvdugh.png" title="Image" alt="image">
+
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1652857394/media/Screenshot_103_bf2esw.png" title="Image" alt="image">
+
 
 First, run the development server:
 
