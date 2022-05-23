@@ -28,11 +28,11 @@ const HeroBanner = ({ heroBanner }) => {
         />
 
         <div>
-//           <Link href={`/product/${heroBanner.product}`}>
-//             <a>
-//               <button type="button">{heroBanner.buttonText}</button>
-//             </a>
-//           </Link>
+         <Link href={`/product/${heroBanner.product}`}>
+           <a>
+            <button type="button">{heroBanner.buttonText}</button>
+           </a>
+         </Link>
           <div className="desc">
             <h5 style={{ fontFamily: '"Rajdhani", sans-serif' }}>
               Description
