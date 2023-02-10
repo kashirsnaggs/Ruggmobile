@@ -5,6 +5,7 @@ import { Cart } from './'
 import { useStateContext } from '../context/StateContext'
 import Image from 'next/image'
 import { SearchBar } from '../components'
+import { VscAccount } from 'react-icons/vsc'
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext()
