@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
-import { urlFor } from "../Lib/client";
+import { urlFor } from '../Lib/client'
 
 const HeroBanner = ({ heroBanner }) => {
   return (
@@ -44,7 +44,7 @@ const HeroBanner = ({ heroBanner }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroBanner;
+export default HeroBanner

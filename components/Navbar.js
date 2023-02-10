@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Cart } from "./";
-import { useStateContext } from "../context/StateContext";
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { Cart } from './'
+import { useStateContext } from '../context/StateContext'
+import Image from 'next/image'
+import { SearchBar } from '../components'
 
 const Navbar = () => {
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { showCart, setShowCart, totalQuantities } = useStateContext()
   return (
     <div className="navbar-container">
       <link
@@ -13,10 +15,24 @@ const Navbar = () => {
         rel="stylesheet"
       ></link>
       <p className="logo">
-        <Link href="/">
-          <a style={{ fontFamily: '"Rajdhani", sans-serif' }}>MCJ Headphones</a>
+        <Link href={'/'}>
+          <span
+            className="logoSpan heroic-text"
+            heroic="Tasty designs for great"
+          >
+            <Image
+              src="/ruggmobile2.png"
+              alt="GLAM Logo"
+              width={70}
+              height={70}
+            />
+            RUGGMOBILE IMPORTS
+          </span>
         </Link>
       </p>
+      <span className="cart-icon">
+        <SearchBar />
+      </span>
       <button className="cart-icon" onClick={() => setShowCart(true)}>
         <AiOutlineShoppingCart />
         <span className="cart-item-qty">{totalQuantities}</span>
@@ -24,7 +40,7 @@ const Navbar = () => {
 
       {showCart && <Cart />}
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

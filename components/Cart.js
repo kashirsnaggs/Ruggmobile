@@ -1,22 +1,22 @@
-import React, { useRef } from "react";
-import Link from "next/link";
+import React, { useRef } from 'react'
+import Link from 'next/link'
 import {
   AiOutlineMinus,
   AiOutlinePlus,
   AiOutlineLeft,
   AiOutlineShopping,
-} from "react-icons/ai";
+} from 'react-icons/ai'
 
-import { TiDeleteOutline } from "react-icons/ti";
+import { TiDeleteOutline } from 'react-icons/ti'
 
-import { toast } from "react-hot-toast";
-import getStripe from "../Lib/getStripe";
+import { toast } from 'react-hot-toast'
+import getStripe from '../Lib/getStripe'
 
-import { useStateContext } from "../context/StateContext";
-import { urlFor } from "../Lib/client";
+import { useStateContext } from '../context/StateContext'
+import { urlFor } from '../Lib/client'
 
 const Cart = () => {
-  const cartRef = useRef();
+  const cartRef = useRef()
   const {
     totalPrice,
     totalQuantities,
@@ -24,27 +24,27 @@ const Cart = () => {
     setShowCart,
     toggleCartItemQuantity,
     onRemove,
-  } = useStateContext();
+  } = useStateContext()
 
   const handleCheckout = async () => {
-    const stripe = await getStripe();
+    const stripe = await getStripe()
 
-    const response = await fetch("/api/stripe", {
-      method: "POST",
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(cartItems),
-    });
+    })
 
-    if (response.statusCode === 500) return;
+    if (response.statusCode === 500) return
 
-    const data = await response.json();
+    const data = await response.json()
 
-    toast.loading("Redirecting....");
+    toast.loading('Redirecting....')
 
-    stripe.redirectToCheckout({ sessionId: data.id });
-  };
+    stripe.redirectToCheckout({ sessionId: data.id })
+  }
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -57,7 +57,7 @@ const Cart = () => {
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">
-            ({totalQuantities} {totalQuantities === 1 ? "item" : "items"})
+            ({totalQuantities} {totalQuantities === 1 ? 'item' : 'items'})
           </span>
         </button>
 
@@ -81,7 +81,7 @@ const Cart = () => {
 
         <div className="product-container">
           {cartItems.length >= 1 &&
-            cartItems.map((item) => (
+            cartItems.map(item => (
               <div className="product" key={item._id}>
                 <img
                   src={urlFor(item?.image[0])}
@@ -99,7 +99,7 @@ const Cart = () => {
                         <span
                           className="minus"
                           onClick={() =>
-                            toggleCartItemQuantity(item._id, "dec")
+                            toggleCartItemQuantity(item._id, 'dec')
                           }
                         >
                           <AiOutlineMinus />
@@ -108,7 +108,7 @@ const Cart = () => {
                         <span
                           className="plus"
                           onClick={() =>
-                            toggleCartItemQuantity(item._id, "inc")
+                            toggleCartItemQuantity(item._id, 'inc')
                           }
                         >
                           <AiOutlinePlus />
@@ -142,7 +142,7 @@ const Cart = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

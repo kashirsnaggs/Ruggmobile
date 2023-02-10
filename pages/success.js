@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { BsBagCheckFill } from "react-icons/bs";
+import React, { useEffect } from 'react'
+import Link from 'next/link'
+import { BsBagCheckFill } from 'react-icons/bs'
 
-import { useStateContext } from "../context/StateContext";
-import { runFireworks } from "../Lib/utils";
+import { useStateContext } from '../context/StateContext'
 
 const Success = () => {
-  const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
+  const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext()
 
   useEffect(() => {
-    localStorage.clear();
-    setCartItems([]);
-    setTotalQuantities(0);
-    setTotalPrice(0);
-    runFireworks();
-  }, [setCartItems, setTotalQuantities, setTotalPrice]);
+    localStorage.clear()
+    setCartItems([])
+    setTotalQuantities(0)
+    setTotalPrice(0)
+  }, [setCartItems, setTotalQuantities, setTotalPrice])
 
   return (
     <div className="success-wrapper">
@@ -26,8 +24,8 @@ const Success = () => {
         <p className="email-msg">Check your email inbox for your receipt</p>
         <p className="description">
           if you have any questions, please email
-          <a className="email" href="mailto:admin@gmail.com">
-            admin@gmail.com
+          <a className="email" href="mailto:snaggs.kashir@gmail.com">
+            snaggs.kashir@gmail.com
           </a>
         </p>
         <Link href="/">
@@ -39,7 +37,7 @@ const Success = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Success;
+export default Success

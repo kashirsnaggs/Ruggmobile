@@ -1,20 +1,22 @@
-import React from "react";
-import Link from "next/link";
-import { urlFor } from "../Lib/client";
+import React from 'react'
+import Link from 'next/link'
 
-const FooterBanner = ({ footer }) => {
-  const {
+import { urlFor } from '../lib/client'
+
+const FooterBanner = ({
+  footerBanner: {
     discount,
     largeText1,
     largeText2,
     saleTime,
     smallText,
     midText,
-    product,
     desc,
+    product,
     buttonText,
     image,
-  } = footer;
+  },
+}) => {
   return (
     <div className="footer-banner-container">
       <div className="banner-desc">
@@ -29,15 +31,14 @@ const FooterBanner = ({ footer }) => {
           <h3>{midText}</h3>
           <p>{desc}</p>
           <Link href={`/product/${product}`}>
-            <a>
-              <button type="button">{buttonText}</button>
-            </a>
+            <button type="button">{buttonText}</button>
           </Link>
         </div>
-        <img src={urlFor(image)} className="footer-banner-image" alt="icon" />
+
+        <img src={urlFor(image)} className="footer-banner-image" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FooterBanner;
+export default FooterBanner

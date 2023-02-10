@@ -1,13 +1,15 @@
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from '@stripe/stripe-js'
+
+let stripePromise
 
 const getStripe = () => {
-  let stripePromise;
-
   if (!stripePromise) {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    stripePromise = loadStripe(
+      'pk_test_51MSlJ6Hs3winMsXJN3hxsTTwbrQndiqcTzLPvCumM17x25JsF7aoKMdOewpzBudJtP5pclcWKKPv8YeQqsAlPgoD00jlOcjNTA'
+    )
   }
 
-  return stripePromise;
-};
+  return stripePromise
+}
 
-export default getStripe;
+export default getStripe
