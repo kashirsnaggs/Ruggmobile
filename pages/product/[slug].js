@@ -1,44 +1,34 @@
-import React, { useState } from 'react'
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiFillStar,
-  AiOutlineStar,
-} from 'react-icons/ai'
+import React, { useState } from 'react';
+import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
-import { client, urlFor } from '../../Lib/client'
-import { Product } from '../../components'
-import { useStateContext } from '../../context/StateContext'
+import { client, urlFor } from '../../Lib/client';
+import { Product } from '../../components';
+import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price } = product
-  const [index, setIndex] = useState(0)
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext()
+  const { image, name, details, price } = product;
+  const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
   const handleBuyNow = () => {
-    onAdd(product, qty)
+    onAdd(product, qty);
 
-    setShowCart(true)
-  }
+    setShowCart(true);
+  };
 
   return (
     <div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img
-              src={urlFor(image && image[index])}
-              className="product-detail-image"
-            />
+            <img src={urlFor(image && image[index])} className="product-detail-image" />
           </div>
           <div className="small-images-container">
             {image?.map((item, i) => (
               <img
                 key={i}
                 src={urlFor(item)}
-                className={
-                  i === index ? 'small-image selected-image' : 'small-image'
-                }
+                className={i === index ? 'small-image selected-image' : 'small-image'}
                 onMouseEnter={() => setIndex(i)}
               />
             ))}
@@ -59,7 +49,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
-          <p className="price">${price}</p>
+          <p className="price">${price} TTD</p>
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
@@ -73,11 +63,7 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <div className="buttons">
-            <button
-              type="button"
-              className="add-to-cart"
-              onClick={() => onAdd(product, qty)}
-            >
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>
               Add to Cart
             </button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>
@@ -98,8 +84,8 @@ const ProductDetails = ({ product, products }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] {
@@ -107,34 +93,34 @@ export const getStaticPaths = async () => {
       current
     }
   }
-  `
+  `;
 
-  const products = await client.fetch(query)
+  const products = await client.fetch(query);
 
   const paths = products.map(product => ({
     params: {
-      slug: product.slug.current,
-    },
-  }))
+      slug: product.slug.current
+    }
+  }));
 
   return {
     paths,
-    fallback: 'blocking',
-  }
-}
+    fallback: 'blocking'
+  };
+};
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  const query = `*[_type == "product" && slug.current == '${slug}'][0]`
-  const productsQuery = '*[_type == "product"]'
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+  const productsQuery = '*[_type == "product"]';
 
-  const product = await client.fetch(query)
-  const products = await client.fetch(productsQuery)
+  const product = await client.fetch(query);
+  const products = await client.fetch(productsQuery);
 
-  console.log(product)
+  console.log(product);
 
   return {
-    props: { products, product },
-  }
-}
+    props: { products, product }
+  };
+};
 
-export default ProductDetails
+export default ProductDetails;
