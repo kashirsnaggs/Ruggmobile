@@ -9575,6 +9575,11 @@ react-is@^18.2.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-parallax@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.npmjs.org/react-parallax/-/react-parallax-3.5.1.tgz"
+  integrity sha512-p5zPsPsqELlIOGaPS01O0IRx8R2bxcBAtrdF/RHf9nIxxk5hijbM2y89tk4rJQBcNH6ESSLe7J2NV4/ms7FLFw==
+
 react-popper@^2.2.4:
   version "2.3.0"
   resolved "https://registry.npmjs.org/react-popper/-/react-popper-2.3.0.tgz"
@@ -10202,6 +10207,11 @@ shell-quote@^1.7.3:
   version "1.8.0"
   resolved "https://registry.npmjs.org/shell-quote/-/shell-quote-1.8.0.tgz"
   integrity sha512-QHsz8GgQIGKlRi24yFc6a6lN69Idnx634w49ay6+jA5yFh7a1UY+4Rp6HPx/L/1zcEDPEij8cIsiqR6bQsE5VQ==
+
+shippo@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/shippo/-/shippo-1.7.1.tgz"
+  integrity sha512-kALIuHGjGhSAq2Yvz9sLewxgJkC82/bsUqjAXOT9jfW0T1LPxRouwFkBUBsgYe68qlbyrMjfpIbtg5Mx7t4SMw==
 
 side-channel@^1.0.4:
   version "1.0.4"
