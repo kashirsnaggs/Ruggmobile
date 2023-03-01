@@ -3,7 +3,7 @@ import { PayPalClient } from '@paypal/checkout-server-sdk';
 const payPalClient = new PayPalClient({
   clientId: process.env.PAYPAL_CLIENT_ID,
   clientSecret: process.env.PAYPAL_CLIENT_SECRET,
-  environment: process.env.PAYPAL_ENVIRONMENT || 'sandbox'
+  environment: 'sandbox'
 });
 
 const createOrder = async cartItems => {
