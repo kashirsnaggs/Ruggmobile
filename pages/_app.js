@@ -4,8 +4,6 @@ import '../styles/globals.css';
 import createCache from '@emotion/cache';
 import CurrencyContextProvider from '../contexts/CurrencyContext';
 
-import { PayPalScriptProvider } from '@paypal/react-paypal-js';
-
 import { StateContext } from '../context/StateContext';
 import { Toaster } from 'react-hot-toast';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
@@ -17,11 +15,10 @@ function MyApp({ Component, pageProps }) {
       <UserProvider>
         <Layout>
           <Toaster />
-          <PayPalScriptProvider deferLoading={true}>
-            <CurrencyContextProvider>
-              <Component {...pageProps} />
-            </CurrencyContextProvider>
-          </PayPalScriptProvider>
+
+          <CurrencyContextProvider>
+            <Component {...pageProps} />
+          </CurrencyContextProvider>
         </Layout>
       </UserProvider>
     </StateContext>
